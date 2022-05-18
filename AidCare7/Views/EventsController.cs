@@ -20,8 +20,11 @@ namespace AidCare7.Views
         }
 
         // GET: Events
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index(string searchString)
+        
+        { 
+
+
             return View(await _context.Event.ToListAsync());
         }
 
