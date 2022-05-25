@@ -21,9 +21,16 @@ namespace AidCare7.Views
 
         // GET: Events
         public async Task<IActionResult> Index(string searchString)
+        { 
+            var filterUser = from s in _context.Event
+                             select s;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                filterUser = filterUser.Where(s => s.EventLocation.Contains(searchString)
+                                      || s.EventName.Contains(searchString));
 
-        {
-            return View(await _context.Event.ToListAsync());
+            }
+            return View(await filterUser.ToListAsync());
         }
 
         // GET: Events/Details/5
@@ -34,14 +41,14 @@ namespace AidCare7.Views
                 return NotFound();
             }
 
-            var @event = await _context.Event
+            var Event = await _context.Event
                 .FirstOrDefaultAsync(m => m.EventId == id);
-            if (@event == null)
+            if (Event == null)
             {
                 return NotFound();
             }
 
-            return View(@event);
+            return View(Event);
         }
 
         // GET: Events/Create
