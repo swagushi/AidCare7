@@ -54,7 +54,7 @@ namespace AidCare7.Views
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("memberId,Firstname,Lastname")] member member)
+        public async Task<IActionResult> Create([Bind("memberId,Firstname,Lastname,DateRegistered")] member member)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace AidCare7.Views
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("memberId,Firstname,Lastname")] member member)
+        public async Task<IActionResult> Edit(int id, [Bind("memberId,Firstname,Lastname,DateRegistered")] member member)
         {
             if (id != member.memberId)
             {

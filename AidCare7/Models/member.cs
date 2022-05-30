@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace AidCare7.Models
@@ -11,6 +12,7 @@ namespace AidCare7.Models
 
         [Display(Name = "Last Name"), Required, MaxLength(50)]
         public string Lastname { get; set; }
+        public DateTime DateRegistered { get; set; }
         public ICollection<memberevent> membersevent { get; set; }
         public ICollection<donation> donations { get; set; }
     }
