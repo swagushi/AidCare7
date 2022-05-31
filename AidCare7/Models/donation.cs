@@ -5,7 +5,8 @@ namespace AidCare7.Models
     public class donation
     {
         public int donationID { get; set; }
-        
+        [StringLength(250, MinimumLength = 1)]
+
         [Display(Name = "Donation Description"), Required, MaxLength(50)]
         public string DonationDescription { get; set; }
         [Display(Name = "Donation Amount"),]
